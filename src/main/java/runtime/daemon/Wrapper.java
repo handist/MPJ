@@ -104,8 +104,9 @@ public class Wrapper extends Thread {
     c = Class.forName(className);
 
     try {
-      System.out.println("Starting process <"+rank+"> on <"+hostName+">");
-
+      if ("true".equals(System.getProperty("mpj.verboseLaunch"))) {	
+        System.out.println("Starting process <"+rank+"> on <"+hostName+">");
+      }
       String arvs[] = new String[nargs.length + 3];
 
       arvs[0] = rank;
