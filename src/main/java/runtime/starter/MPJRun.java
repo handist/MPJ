@@ -154,8 +154,7 @@ public class MPJRun {
       if (mpjHomeDir == null) {
         throw new Exception("[MPJRun.java]:MPJ_HOME environment found..");
       }
-    }
-    catch (Exception exc) {
+    } catch (Exception exc) {
       System.out.println("[MPJRun.java]:" + exc.getMessage());
       exc.printStackTrace();
       return;

@@ -687,8 +687,14 @@ public class SMPDeviceImpl {
             //FIXME: is there any effect of not having `rank' 
             WORLD.id = new ProcessID(myuuid);
             WORLD.pids[rank] = WORLD.id;
+            
+            System.err.println(thread.getThreadGroup().getClass().getCanonicalName());
 	    smpProcess = (SMPDevProcess)thread.getThreadGroup();
 	    smpProcess.setProcessID(WORLD.id);
+            // FIXME
+            //ThreadGroup tg = thread.getThreadGroup();
+            //smpProcess = new SMPDevProcess(tg.getName());
+            //smpProcess.setProcessID(WORLD.id);
 
             WORLD.threads[rank] = thread;
             //WORLD.ids.put(thread, new Integer(myId)) ;

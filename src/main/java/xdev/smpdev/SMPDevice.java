@@ -37,8 +37,8 @@ import org.apache.log4j.Logger;
 public class SMPDevice implements Device {
 
     public static Logger logger = Logger.getLogger("mpj");
-		public static int SEND_OVERHEAD=0;
-		public static int RECV_OVERHEAD=0;
+	public static int SEND_OVERHEAD=0;
+	public static int RECV_OVERHEAD=0;
 		
 		
     /**

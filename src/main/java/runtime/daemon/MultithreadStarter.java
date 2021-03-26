@@ -66,32 +66,31 @@ public class MultithreadStarter {
   public MultithreadStarter(String[] args) throws Exception {
 
     Runnable ab = new Runnable() {
-      public void run() {
-	synchronized (rank) {
-	  int val = rank.intValue();
-	  val++;
-	  rank = new Integer(val);
-	  newArgs[1] = rank.toString();
-	  // System.out.println(" newArgs[0] "+ newArgs[0] + "__"+
-	  // Thread.currentThread() );
-	  // System.out.println(" newArgs[1] "+ newArgs[1] + "__"+
-	  // Thread.currentThread() );
-	}
+    	@Override
+    	public void run() {
+    	  	synchronized (rank) {
+    	  		int val = rank.intValue();
+    	  		val++;
+    	  		rank = new Integer(val);
+    	  		newArgs[1] = rank.toString();
+    	  		// System.out.println(" newArgs[0] "+ newArgs[0] + "__"+
+    	  		// Thread.currentThread() );
+    	  		// System.out.println(" newArgs[1] "+ newArgs[1] + "__"+
+    	  		// Thread.currentThread() );
+    	  	}
 
-	try {
-	  System.out.println(" invoking for <" + Thread.currentThread());
-	  MultithreadStarter.this.method.invoke(null,
-	      new Object[] { MultithreadStarter.this.newArgs });
-	  System.out.println(" invoked for <" + Thread.currentThread());
-	}
-	catch (Exception e) {
-	  System.out.println(" exception while invoking in "
-	      + Thread.currentThread());
-	  e.printStackTrace();
-	  // This should not happen, as we have disabled access checks
-	}
-
-      }
+    	  	try {
+    	  		System.out.println(" invoking for <" + Thread.currentThread());
+    	  		MultithreadStarter.this.method.invoke(null,
+    	  				new Object[] { MultithreadStarter.this.newArgs });
+    	  		System.out.println(" invoked for <" + Thread.currentThread());
+    	  	} catch (Exception e) {
+    	  		System.out.println(" exception while invoking in "
+    	  				+ Thread.currentThread());
+    	  		e.printStackTrace();
+    	  		// This should not happen, as we have disabled access checks
+    	  	}
+    	}
 
     };
 
