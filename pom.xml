@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.handist</groupId>
   <artifactId>MPJ</artifactId>
-  <version>0.44</version>
+  <version>v1.0.1</version>
   <name>MPJ Express</name>
   <description>Maven wrapping of the MPJ Express project</description>
   
